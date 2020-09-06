@@ -49,7 +49,7 @@ public class WeatherPageTest extends TestBase {
 		String temperature=response.jsonPath().getString("main.temp");
 		temperatureInKelvinfromAPI= Utility.convertStringtoNumeric(temperature);
 		variance=Math.abs(temperatureInKelvinfromAPI-temperatureInKelvinFromUI);
-		Assert.assertTrue(variance<=2.00,
+		Assert.assertTrue(variance<=TestConstants.variance,
 				"\nTemperature Variance is more than 2 for city : " + City + "\nTemparture Through UI is : " +
 				temperatureInKelvinFromUI +
 						"  " +
