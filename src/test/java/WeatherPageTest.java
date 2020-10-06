@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.net.MalformedURLException;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -25,10 +26,11 @@ public class WeatherPageTest extends TestBase {
 	}
 
 	@BeforeMethod
-	public void setUp(){
+	public void setUp() throws MalformedURLException, InterruptedException {
 		initialization();
 		weatherPage=new WeatherPage();
 		if(weatherPage.isNotificationPopUpDisplayed()){
+			Thread.sleep(50);
 			weatherPage.closeNotificationPopupButton();
 		}
 	}

@@ -19,6 +19,7 @@ public class Utility {
 	}
 
 	public static double convertStringtoNumeric(String temperature){
+		System.out.println(temperature);
 		return Double.parseDouble(temperature);
 	}
 }

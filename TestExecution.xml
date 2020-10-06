@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="WeatherReportingComparatorSuite" >
+<suite name="WeatherReportingComparatorSuite" parallel="tests">
 	<listeners>
 		<listener class-name="util.Listeners" />
 	</listeners>
@@ -9,4 +9,9 @@
 			<class name="WeatherPageTest" />
 		</classes>
 	</test> <!-- Test -->
+	<test name="CompareWeatherThroughAPIAndUITest2">
+		<classes>
+			<class name="WeatherPageTest" />
+		</classes>
+	</test>
 </suite> <!-- Suite -->

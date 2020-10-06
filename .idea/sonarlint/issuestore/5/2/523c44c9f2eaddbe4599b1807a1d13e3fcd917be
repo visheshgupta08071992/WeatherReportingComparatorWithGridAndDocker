@@ -1,0 +1,14 @@
+
+v
+java:S1104"YMake IMPLICIT_WAIT a static final constant or non-public and provide accessors if needed.(θ–έ—8άψ‹Ζ.
+y
+java:S3008"\Rename this field "PAGE_LOAD_TIMEOUT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£ΝΙ8άψ‹Ζ.
+u
+java:S3008"XRename this field "IMPLICIT_WAIT" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(θ–έ—8άψ‹Ζ.
+T
+java:S1444"7Make this "public static PAGE_LOAD_TIMEOUT" field final(£ΝΙ8άψ‹Ζ.
+P
+java:S1444"3Make this "public static IMPLICIT_WAIT" field final(θ–έ—8άψ‹Ζ.
+z
+java:S1104"]Make PAGE_LOAD_TIMEOUT a static final constant or non-public and provide accessors if needed.(£ΝΙ8άψ‹Ζ.
+{	java:S115	"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(΅ϊΐόÿÿÿÿ8†½™Ζ.

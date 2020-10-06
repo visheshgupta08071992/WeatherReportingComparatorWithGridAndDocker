@@ -3,15 +3,17 @@ package base;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
@@ -31,7 +33,7 @@ public class TestBase {
 	public TestBase(){
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "/src/main/java/config/WeatherReporting.properties");
+			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "/src/main/resources/WeatherReporting.properties");
 			prop.load(ip);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -40,19 +42,21 @@ public class TestBase {
 		}
 	}
 
-	public static void initialization(){
+	public static void initialization() throws MalformedURLException {
 		String browserName = prop.getProperty("browser");
+		String host = prop.getProperty("host");
+		ChromeOptions op = new ChromeOptions();
+		String completeUrl="http://" + host + ":4445/wd/hub";
 
-		if(browserName.equals("chrome")){
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+		if(browserName.equals("FF")){
+			FirefoxOptions op1 = new FirefoxOptions();
+			driver=new RemoteWebDriver(new URL(completeUrl),op1);
 		}
-		else if(browserName.equals("FF")){
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
-		}
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
+
+		driver=new RemoteWebDriver(new URL(completeUrl),op);
+
+	//	driver.manage().window().maximize();
+	//	driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestConstants.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestConstants.IMPLICIT_WAIT, TimeUnit.SECONDS);
 

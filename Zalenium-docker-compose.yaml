@@ -1,0 +1,17 @@
+version: "3"
+services:
+  hub:
+    image: dosel/zalenium
+    logging:
+      driver: "none"
+    ports:
+      - "4444:4444"
+      - "5555:5555"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    command: >
+      start --desiredContainers 2
+            --maxDockerSeleniumContainers 2
+            --maxTestSessions 3
+            --videoRecordingEnabled false

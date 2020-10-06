@@ -1,0 +1,7 @@
+
+\
+java:S1118":Add a private constructor to hide the implicit public one.(¹‹ó¿ıÿÿÿÿ8ôúß•Æ.
+
+java:S1488"kImmediately return this expression instead of assigning it to the temporary variable "temperatureInKelvin".(µˆÎ‚úÿÿÿÿ8ÈÇ·’Æ.
+
+java:S1488"lImmediately return this expression instead of assigning it to the temporary variable "temperatureInCelcius".(×Œ¢ıÿÿÿÿ8¶Š¦’Æ.
